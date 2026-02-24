@@ -1,0 +1,471 @@
+@import url('https://fonts.cdnfonts.com/css/chillax');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0e0e0e;
+    overflow-x: hidden;
+    color: var(--text-main);
+    font-family: var(--accent-font);
+}
+
+header {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+nav h1 {
+    font-family: 'Crushed';
+    margin-top: 50px;
+    font-size: 48px;
+    color: white;
+    position: relative;
+}
+
+nav h1::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+    height: 2px;
+    background-color: #1e1e1e;
+}
+
+/* --- CARDS INICIO --- */
+
+:root {
+    --bg-dark: #0e0e0e;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-main: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent-font: 'Inter', sans-serif;
+}
+
+.dashboard-cards {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.card {
+    flex: 1;
+    position: relative;
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.8), rgba(20, 20, 20, 0.8));
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 40px 20px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.card-value {
+    font-size: 4rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+.card-value.highlight {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+/* --- TABELA DE LEADS --- */
+
+.leads-table {
+    width: 100%;
+    max-width: 1160px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.lead-row {
+    display: grid;
+    /* Agora com 6 colunas: Nome, Tel, Serviço, Data, VALOR (120px) e Checkbox (100px) */
+    grid-template-columns: 1.5fr 1.5fr 2fr 1fr 120px 100px; 
+    align-items: center;
+    padding: 18px 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 8px;
+    border-radius: 4px;
+    transition: background 0.2s ease;
+}
+
+/* --- ESTILO DO INPUT DE VALOR --- */
+.valor-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #25D366; /* Verde sutil para remeter a dinheiro */
+    font-weight: 500;
+}
+
+.input-valor {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    color: var(--text-main);
+    padding: 6px 10px;
+    border-radius: 4px;
+    width: 80px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s;
+}
+
+.input-valor:focus, .input-valor:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Esconde as setinhas padrão do input de número */
+.input-valor::-webkit-outer-spin-button,
+.input-valor::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.lead-row:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Opacidade quando a linha estiver com status "Fechado" */
+.row-closed {
+    opacity: 0.5;
+    border-color: rgba(0, 255, 0, 0.2);
+}
+
+.lead-col {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lead-col.name {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.lead-col.date, .lead-col.phone {
+    color: var(--text-secondary);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.lead-col svg {
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+/* Coluna do checkbox alinhada ao final */
+.check-col {
+    justify-content: flex-end;
+}
+
+/* --- CHECKBOX CUSTOMIZADO --- */
+
+.custom-checkbox {
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.custom-checkbox input {
+    display: none;
+}
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    margin-right: 10px;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.custom-checkbox input:checked + .checkmark {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
+.custom-checkbox input:checked + .checkmark:after {
+    content: "L";
+    position: absolute;
+    color: #000;
+    font-size: 12px;
+    left: 4px;
+    top: 0px;
+    transform: scaleX(-1) rotate(-35deg);
+}
+
+/* --- RESPONSIVIDADE MOBILE --- */
+
+@media (max-width: 768px) {
+    .lead-row {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        text-align: center;
+    }
+    .check-col {
+        justify-content: center;
+    }
+    .lead-col {
+        justify-content: center;
+    }
+}
+
+
+/* Se não colou antes, adicione isso no seu CSS: */
+.loader-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    border-top-color: #ffffff; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animação para os textos enquanto carregam */
+.loading-text {
+    animation: pulse 1.5s infinite;
+    opacity: 0.5;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+
+.whatsapp-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.whatsapp-link:hover {
+    color: #25D366; /* Verde oficial do WhatsApp ao passar o mouse */
+    text-decoration: underline;
+}
+
+
+/* --- DESTAQUE PARA O CARD DE RECEITA --- */
+.revenue-card {
+    border-color: rgba(37, 211, 102, 0.2);
+    background: linear-gradient(145deg, rgba(40, 40, 40, 0.8), rgba(15, 35, 20, 0.8));
+}
+
+.revenue-card .card-value {
+    color: #25D366; /* Verde sucesso */
+    font-size: 2.8rem; /* Um pouco menor para caber o "R$" sem quebrar a linha */
+}
+
+
+/* --- MODAL DE NOTAS E BOTÃO --- */
+.btn-nota-icon { background: none; border: none; color: var(--text-secondary); cursor: pointer; padding: 4px; border-radius: 4px; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
+.btn-nota-icon:hover { color: #25D366; background: rgba(37, 211, 102, 0.1); }
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); z-index: 1000; justify-content: center; align-items: center; }
+.modal-overlay.active { display: flex; }
+.modal-content { background: #121212; border: 1px solid var(--border-color); border-radius: 8px; width: 90%; max-width: 500px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); transform: translateY(-20px); transition: transform 0.3s ease; }
+.modal-overlay.active .modal-content { transform: translateY(0); }
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.modal-header h3 { font-size: 1.2rem; font-weight: 500; color: #fff; }
+.close-modal { background: none; border: none; color: var(--text-secondary); font-size: 1.5rem; cursor: pointer; }
+.close-modal:hover { color: #fff; }
+#modal-textarea { width: 100%; height: 180px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); color: #fff; padding: 15px; border-radius: 4px; font-family: var(--accent-font); resize: vertical; margin-bottom: 20px; }
+#modal-textarea:focus { border-color: #25D366; outline: none; background: rgba(255,255,255,0.05); }
+.btn-salvar { background: #25D366; color: #000; border: none; padding: 12px 20px; border-radius: 4px; font-weight: 600; cursor: pointer; width: 100%; transition: 0.3s; }
+.btn-salvar:hover { background: #1ebd5a; }
+
+
+
+
+
+
+
+
+
+/* KANBAN */
+
+/* --- NAVEGAÇÃO ENTRE PÁGINAS --- */
+.nav-links { display: flex; gap: 15px; margin-bottom: 10px; }
+.nav-btn {
+    text-decoration: none; color: var(--text-secondary); padding: 8px 16px;
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; transition: 0.3s;
+    font-size: 0.9rem;
+}
+.nav-btn:hover { background: rgba(255,255,255,0.05); color: #fff; }
+.nav-btn.active { background: #25D366; color: #000; border-color: #25D366; font-weight: 600; }
+
+/* --- ESTRUTURA DO KANBAN --- */
+.kanban-board {
+   display: flex; gap: 15px; max-width: 1160px; margin: 40px auto;
+    padding-bottom: 20px; overflow-x: auto; align-items: flex-start;
+}
+
+.kanban-column {
+ flex: 1; min-width: 250px; background: rgba(20, 20, 20, 0.6);
+    border: 1px solid var(--border-color); border-radius: 6px;
+    display: flex; flex-direction: column; max-height: 75vh;
+}
+
+.kanban-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 15px 20px; border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+.kanban-header h2 { font-size: 1.1rem; font-weight: 500; color: #fff; text-transform: uppercase; letter-spacing: 1px; }
+.badge { background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; }
+
+.kanban-cards-container {
+    padding: 15px; overflow-y: auto; flex-grow: 1; min-height: 200px;
+    display: flex; flex-direction: column; gap: 12px;
+}
+
+/* Área de "soltar" o card (Drag & Drop visual) */
+.kanban-cards-container.drag-over {
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+/* --- ESTILO DO CARD DO KANBAN --- */
+.k-card {
+    background: #1a1a1a; border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px; padding: 15px; cursor: grab; transition: transform 0.2s, box-shadow 0.2s;
+}
+.k-card:hover { border-color: rgba(255,255,255,0.2); transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.k-card:active { cursor: grabbing; transform: scale(0.98); }
+
+.k-card-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.k-card-name { font-weight: 600; font-size: 1rem; color: #fff; }
+.k-card-service { font-size: 0.8rem; color: #25D366; background: rgba(37, 211, 102, 0.1); padding: 2px 6px; border-radius: 4px; }
+.k-card-footer { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-secondary); margin-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 10px;}
+
+/* Quando o card é segurado, ele fica transparente e dá uma leve inclinada de 3 graus */
+.k-card.dragging {
+    opacity: 0.6 !important;
+    transform: rotate(-3deg) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    border-color: #25D366;
+}
+
+
+/* --- ESTILO DO INPUT DE MOTIVO (TEXTAREA) --- */
+#motivo-textarea {
+    width: 100%;
+    height: 120px;
+    background: rgba(0, 0, 0, 0.2); /* Fundo mais escuro para dar profundidade */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    padding: 15px;
+    border-radius: 8px;
+    font-family: var(--accent-font);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    resize: vertical; /* Permite aumentar o campo apenas para baixo */
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2); /* Sombra interna leve */
+}
+
+/* O que acontece quando o usuário clica para digitar (Focus) */
+#motivo-textarea:focus {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 85, 85, 0.5); /* Borda vermelha suave (tema de 'perdido') */
+    box-shadow: 0 0 0 3px rgba(255, 85, 85, 0.1); /* Efeito de 'glow' premium */
+}
+
+/* Estilizando o texto de dica (Placeholder) */
+#motivo-textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+    font-style: italic;
+}
+
+
+/* --- SCROLLBAR PREMIUM DARK MODE --- */
+/* Personaliza a barra principal do Kanban e da página */
+::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+    height: 8px; /* Altura da barra horizontal no Kanban */
+}
+
+/* O fundo por onde a barra corre */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2); 
+    border-radius: 4px;
+}
+
+/* A "peça" que a gente clica e arrasta */
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15); 
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+/* Quando passa o mouse em cima da barra */
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3); 
+}
+
+/* Deixa a barra de dentro das colunas (vertical) um pouco mais fina para não roubar espaço do card */
+.kanban-cards-container::-webkit-scrollbar {
+    width: 6px;
+}

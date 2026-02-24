@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&display=swap" rel="stylesheet">
+  <link href="https://cdn.fontshare.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crushed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Murilo | Dashboard</title>
+</head>
+
+<body>
+
+  <header>
+    <nav style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <h1 style="font-family: 'Crushed';">Dashboard | Lista</h1>
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn">Ver em Lista</a>
+        <a href="kanban.html" class="nav-btn active">Ver Funil</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="dashboard-cards">
+    <div class="card">
+      <div class="card-content">
+        <h3 class="card-title">LEADS</h3>
+        <p id="total-leads" class="card-value">10</p>
+      </div>
+      <div class="card-overlay"></div>
+    </div>
+
+    <div class="card active">
+      <div class="card-content">
+        <h3 class="card-title">SERVIÇO PRINCIPAL</h3>
+        <p id="servico-principal" class="card-value highlight">LANDING PAGE</p>
+      </div>
+      <div class="card-overlay"></div>
+    </div>
+
+    <div class="card">
+      <div class="card-content">
+        <h3 class="card-title">REUNIÕES MARCADAS</h3>
+        <p id="total-reunioes" class="card-value">7</p>
+      </div>
+      <div class="card-overlay"></div>
+    </div>
+    <div class="card revenue-card">
+      <h3 class="card-title">RECEITA TOTAL</h3>
+      <p id="receita-total" class="card-value highlight">R$ 0,00</p>
+    </div>
+  </section>
+
+  <section class="leads-table">
+  </section>
+
+  <div id="notas-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-nome-lead">Notas do Lead</h3>
+            <button class="close-modal" onclick="fecharModal()">&times;</button>
+        </div>
+        <textarea id="modal-textarea" placeholder="Digite o briefing, histórico de conversas ou detalhes da reunião aqui..."></textarea>
+        <div class="modal-footer">
+            <button class="btn-salvar" id="btn-salvar-notas" onclick="guardarNotas()">Salvar no Navegador</button>
+        </div>
+    </div>
+</div>
+
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

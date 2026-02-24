@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRM Agência - Kanban</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin:wght@100..700&display=swap" rel="stylesheet">
+  <link href="https://cdn.fontshare.com" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crushed&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <nav style="display: flex; justify-content: space-between; align-items: flex-end;">
+      <h1 style="font-family: 'Crushed';">Funil de Vendas</h1>
+      <div class="nav-links">
+        <a href="index.html" class="nav-btn">Ver em Lista</a>
+        <a href="kanban.html" class="nav-btn active">Ver Funil</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="kanban-board">
+
+    <div class="kanban-column" id="col-novos">
+      <div class="kanban-header" style="border-bottom-color: #3b82f6;">
+        <h2>Novos Leads</h2>
+        <span class="badge">0</span>
+      </div>
+      <div class="kanban-cards-container" data-processo="Novo">
+      </div>
+    </div>
+
+    <div class="kanban-column" id="col-negociacao">
+      <div class="kanban-header" style="border-bottom-color: #fbbf24;">
+        <h2>Em Negociação</h2>
+        <span class="badge">0</span>
+      </div>
+      <div class="kanban-cards-container" data-processo="Negociação">
+      </div>
+    </div>
+
+    <div class="kanban-column" id="col-fechados">
+      <div class="kanban-header" style="border-bottom-color: #25D366;">
+        <h2>Fechados</h2>
+        <span class="badge">0</span>
+      </div>
+      <div class="kanban-cards-container" data-processo="Fechado">
+      </div>
+    </div>
+    <div class="kanban-column" id="col-perdidos">
+      <div class="kanban-header" style="border-bottom-color: #ff5555;">
+        <h2>Não Fechados</h2>
+        <span class="badge">0</span>
+      </div>
+      <div class="kanban-cards-container" data-processo="Perdido">
+      </div>
+    </div>
+  </main>
+  <div id="motivo-modal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 style="color: #ff5555;">Motivo da Perda</h3>
+        <button class="close-modal" onclick="cancelarPerda()">&times;</button>
+      </div>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 15px;">Por que este contrato não foi fechado?</p>
+      <textarea id="motivo-textarea" placeholder="Ex: Achou caro, fechou com a concorrência, parou de responder..."></textarea>
+      <div class="modal-footer">
+        <button class="btn-salvar" style="background: #ff5555; color: #fff;" onclick="confirmarPerda()">Salvar Motivo</button>
+      </div>
+    </div>
+  </div>
+
+  </main>
+
+  <script src="kanban.js"></script>
+</body>
+
+</html>
