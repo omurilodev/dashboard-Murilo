@@ -54,6 +54,7 @@
         <p id="total-reunioes" class="card-value">7</p>
       </div>
       <div class="card-overlay"></div>
+      <button id="btnNovaReuniao" class="btn-premium">Agendar Reunião</button>
     </div>
     <div class="card revenue-card">
       <h3 class="card-title">RECEITA TOTAL</h3>
@@ -63,6 +64,30 @@
 
   <section class="leads-table">
   </section>
+
+<div id="modalAgendamento" class="modal-overlay">
+    <div class="modal-content dark-card">
+        <h3>Agendar Nova Call</h3>
+        <form id="formAgendamento">
+            <div class="input-group">
+                <label for="leadNome">Nome do Lead</label>
+                <input type="text" id="leadNome" placeholder="Ex: Instituto de Inglês" required>
+            </div>
+            <div class="input-group">
+                <label for="dataReuniao">Data</label>
+                <input type="date" id="dataReuniao" required>
+            </div>
+            <div class="input-group">
+                <label for="horaReuniao">Horário</label>
+                <input type="time" id="horaReuniao" required>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="btnCancelar" class="btn-secundario">Cancelar</button>
+                <button type="submit" class="btn-premium">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
 
   <div id="notas-modal" class="modal-overlay">
     <div class="modal-content">

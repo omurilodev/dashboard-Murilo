@@ -469,3 +469,74 @@ nav h1::before {
 .kanban-cards-container::-webkit-scrollbar {
     width: 6px;
 }
+
+
+/* Botões */
+.btn-premium {
+    background-color: #282828;
+    color: #fff;
+    border: 1px solid #444;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-premium:hover {
+    background-color: #333;
+    border-color: #2ecc71; /* Verde de sucesso */
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: #aaa;
+    border: none;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+
+
+.dark-card {
+    background-color: #0e0e0e;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a1a1a;
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 6px;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #2ecc71;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}

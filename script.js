@@ -320,3 +320,57 @@ function guardarNotas() {
         btn.style.color = '#000';
     }, 1200);
 }
+
+
+// Controles do Modal
+const modal = document.getElementById('modalAgendamento');
+
+// Para ABRIR o modal, adicionamos a classe 'active'
+document.getElementById('btnNovaReuniao').addEventListener('click', () => {
+    modal.classList.add('active');
+});
+
+// Para FECHAR o modal no botão cancelar, removemos a classe 'active'
+document.getElementById('btnCancelar').addEventListener('click', () => {
+    modal.classList.remove('active');
+});
+
+// Lógica de Envio para o n8n
+document.getElementById('formAgendamento').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Capturando os dados
+    const lead = document.getElementById('leadNome').value;
+    const data = document.getElementById('dataReuniao').value;
+    const hora = document.getElementById('horaReuniao').value;
+
+    // Essa URL você vai copiar do nó de Webhook do n8n no próximo passo
+    const n8nWebhookUrl = 'https://hook.neowchat.com.br/webhook/agendar-call-crm';
+
+    try {
+        // Disparando os dados para o seu n8n
+        const response = await fetch(n8nWebhookUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                lead: lead,
+                data: data,
+                hora: hora
+            })
+        });
+
+        if(response.ok) {
+            alert('Reunião enviada para o n8n com sucesso!');
+            // Para FECHAR após o sucesso, também removemos o 'active'
+            modal.classList.remove('active'); 
+            document.getElementById('formAgendamento').reset();
+            
+            // Mais tarde podemos adicionar aqui a lógica para atualizar a sua tabela de reuniões na tela
+        }
+    } catch (error) {
+        console.error('Erro na integração:', error);
+        alert('Erro ao conectar com a automação.');
+    }
+});
